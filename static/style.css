@@ -1,0 +1,85 @@
+/* Reset & Base */
+body {
+    background-color: #f0f2f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 40px 0;
+}
+
+/* Container */
+.container {
+    max-width: 720px;
+    margin: auto;
+    padding: 0 15px;
+}
+
+/* Card Styling */
+.card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+/* Card Header */
+.card-header {
+    background: linear-gradient(to right, #0062E6, #33AEFF);
+    color: #fff;
+    padding: 25px 20px;
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+/* Labels */
+label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: inline-block;
+    color: #333;
+}
+
+/* Form Inputs */
+textarea.form-control,
+input.form-control-file {
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    font-size: 15px;
+}
+
+/* Help Text */
+.text-muted {
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+/* Button */
+.btn-primary {
+    background: #0062E6;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 6px;
+    width: 100%;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #004bb1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .card-header {
+        font-size: 1.5rem;
+    }
+}
