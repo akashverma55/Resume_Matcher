@@ -49,7 +49,7 @@ def matcher():
             file.save(filename)
             resumes.append(extract_text(filename))
 
-        if not job_description or not resume:
+        if not job_description or not resumes:
             return render_template('index.html', message="Please provide both job description and resume files.")
         
         vectorizer = TfidfVectorizer().fit_transform([job_description]+ resumes)
