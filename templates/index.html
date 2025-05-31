@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,30 +8,67 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #323c45;
+            background-color: #f4f6f8;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
         .container {
-            margin-top: 50px; 
+            max-width: 800px;
+            margin: 60px auto;
         }
+
         .card {
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
+
         .card-header {
             background-color: #007bff;
             color: white;
-            border-radius: 10px 10px 0 0;
-            padding: 10px 20px;
+            font-size: 1.25rem;
+            font-weight: 500;
+            padding: 1rem 1.5rem;
         }
+
         .card-body {
-            padding: 20px;
+            padding: 2rem;
         }
-        .form-group {
-            margin-bottom: 1.5rem;
+
+        .form-control,
+        .form-label {
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .result-list {
+            margin-top: 1.5rem;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+        }
+
+        .result-list li {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #333;
         }
     </style>
+
 </head>
+
 <body>
     <div class="container">
         <div class="card">
@@ -42,24 +79,26 @@
                 <form method="POST" action="/matcher" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="job_description">Job Description:</label>
-                        <textarea class="form-control" id="job_description" name="job_description" rows="5" required></textarea>
+                        <textarea class="form-control" id="job_description" name="job_description" rows="5"
+                            required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="resumes">Upload Resumes:</label>
                         <p>Please Upload Resumes More than 5...........</p>
-                        <input type="file" class="form-control" id="resumes" name="resumes" multiple required accept=".pdf, .docx, .txt">
+                        <input type="file" class="form-control" id="resumes" name="resumes" multiple required
+                            accept=".pdf, .docx, .txt">
                     </div>
                     <button type="submit" class="btn btn-primary">Match Resumes</button>
                 </form>
                 {% if message %}
-                    <div class="alert alert-info mt-4">
-                        <p>{{ message }}</p>
-                        <ul>
-                            {% for index in range(top_resumes|length) %}
-                                <li>{{ top_resumes[index] }} (Similarity Score: {{ similarity_scores[index] }})</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
+                <div class="alert alert-info mt-4">
+                    <p>{{ message }}</p>
+                    <ul>
+                        {% for index in range(top_resumes|length) %}
+                        <li>{{ top_resumes[index] }} (Similarity Score: {{ similarity_scores[index] }})</li>
+                        {% endfor %}
+                    </ul>
+                </div>
                 {% endif %}
             </div>
         </div>
@@ -68,4 +107,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
